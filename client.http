@@ -1,0 +1,43 @@
+@BaseUrl = http://localhost:3333
+
+# @name create_task
+POST {{BaseUrl}}/tasks
+Content-Type: application/json
+
+{
+  "title": "Task 05",
+  "description": "Description 01"
+}
+
+###
+
+# @name delete_task
+DELETE {{BaseUrl}}/tasks/:id
+
+###
+
+# @name edit_task
+PUT  {{BaseUrl}}/tasks/:id
+Content-Type: application/json
+
+{
+  "title": "Edit title",
+  "description": "Edit description"
+}
+
+###
+
+# @name fetch_tasks
+GET {{BaseUrl}}/tasks
+
+###
+
+# @name mark_task_as_complete_or_not
+PATCH {{BaseUrl}}/tasks/:id/complete
+
+###
+
+# @name import_csv_task
+POST {{BaseUrl}}/tasks/import
+Content-Disposition: multipart/form-data; name="file"; filename="tasks.csv"
+Content-Type: text/csv
